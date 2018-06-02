@@ -91,7 +91,7 @@ var params = {
     }
 };
 
-  if fortuneID = 0 {
+  if (fortuneID = 0) {
       rres.render('index', {fortune: null, error: 'Error, please enter a fortune first'});
   }
 
