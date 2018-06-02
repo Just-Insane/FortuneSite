@@ -10,7 +10,7 @@ var randnum = require('random-number-between');
 
 AWS.config.update({
   region: "us-west-2",
-  endpoint: "http://localhost:8000"
+  endpoint: "https://dynamodb.ca-central-1.amazonaws.com"
 });
 
 var docClient = new AWS.DynamoDB.DocumentClient();
