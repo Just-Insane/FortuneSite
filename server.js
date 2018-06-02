@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -89,6 +90,10 @@ var params = {
         "fortune": fortune
     }
 };
+
+  if fortuneID = 0 {
+      rres.render('index', {fortune: null, error: 'Error, please enter a fortune first'});
+  }
 
   docClient.put(params, function(err, data) {
     if (err) {
