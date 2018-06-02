@@ -91,10 +91,6 @@ var params = {
     }
 };
 
-  if (itemCountTotal = 0) {
-      rres.render('index', {fortune: null, error: 'Error, please enter a fortune first'});
-  }
-
   docClient.put(params, function(err, data) {
     if (err) {
         res.render('index', {fortune: null, error: "Unable to add item."});
@@ -136,6 +132,10 @@ app.post('/get', function (req, res) {
           "fortuneID": rand
       }
   };
+
+  if (itemCountTotal = 0) {
+    res.render('index', {fortune: null, error: 'Error, please enter a fortune first'});
+  }
   
   docClient.get(getparams, function(err, data) {
     if (err) {
