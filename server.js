@@ -134,7 +134,7 @@ app.post('/get', function (req, res) {
   
   docClient.get(getparams, function(err, data) {
     if (err) {
-        res.render('index', {fortune: null, error: "Unable to add item."});
+        res.render('index', {fortune: null, error: "Unable to get item."});
     } else {
         if(getparams == undefined) {
            res.render('index', {fortune: null, error: 'Error, please try again'});
