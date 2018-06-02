@@ -9,7 +9,7 @@ var AWS = require("aws-sdk");
 var randnum = require('random-number-between');
 
 AWS.config.update({
-  region: "us-west-2",
+  region: "ca-central-1",
   endpoint: "https://dynamodb.ca-central-1.amazonaws.com"
 });
 
