@@ -133,7 +133,7 @@ app.post('/get', function (req, res) {
       }
   };
 
-  if (itemCountTotal <= 0) {
+  if (count <= 1) {
     res.render('index', {fortune: null, error: 'Error, please enter a fortune first'});
   } else {
       docClient.get(getparams, function(err, data) {
