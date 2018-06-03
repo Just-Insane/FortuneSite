@@ -77,7 +77,12 @@ app.post('/', function (req, res) {
 
 let fortune = req.body.newFortune;
 
-fortuneID = itemCountTotal + 1;
+if (itemCountTotal >= 1) {
+    fortuneID = itemCountTotal
+}
+
+fortuneID = fortuneID + 1;
+console.log('Fortune ID:', fortuneID);
     
 var params = {
     TableName:table,
