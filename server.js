@@ -65,10 +65,6 @@ async.until( function() { return scanComplete; },
              }
 );
 
-if (itemCountTotal >= 1) {
-    fortuneID = itemCountTotal
-  }
-
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs')
@@ -81,7 +77,7 @@ app.post('/', function (req, res) {
 
 let fortune = req.body.newFortune;
 
-fortuneID = fortuneID + 1;
+fortuneID = itemCountTotal + 1;
     
 var params = {
     TableName:table,
