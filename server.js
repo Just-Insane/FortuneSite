@@ -133,22 +133,22 @@ app.post('/get', function (req, res) {
       }
   };
 
-  if (itemCountTotal = 0) {
+  if (itemCountTotal <= 0) {
     res.render('index', {fortune: null, error: 'Error, please enter a fortune first'});
-  }
-  
-  docClient.get(getparams, function(err, data) {
-    if (err) {
-        res.render('index', {fortune: null, error: "Unable to get item."});
-    } else {
-        if(getparams == undefined) {
-           res.render('index', {fortune: null, error: 'Error, please try again'});
+  } else {
+      docClient.get(getparams, function(err, data) {
+        if (err) {
+            res.render('index', {fortune: null, error: "Unable to get item."});
         } else {
-            let fortuneText = `Fortune: ${data.Item.fortune}!`;
-            res.render('index', {fortune: fortuneText, error: null});
+            if(getparams == undefined) {
+                res.render('index', {fortune: null, error: 'Error, please try again'});
+            } else {
+                let fortuneText = `Fortune: ${data.Item.fortune}!`;
+                res.render('index', {fortune: fortuneText, error: null});
+            }
         }
-    }
-  });
+      });
+  }
   
 })
 
